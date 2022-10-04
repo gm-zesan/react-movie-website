@@ -5,7 +5,7 @@ import { useGlobalContext } from "./Context";
 const SingleMovie = () => {
     const { id } = useParams();
     const { isLoading } = useGlobalContext();
-    const [movie, setMovie] = useState();
+    const [movie, setMovie] = useState({});
 
     const url = `https://www.omdbapi.com/?apikey=727bbdc1&i=${id}`;
     const getSingleMovie = async () => {
@@ -35,12 +35,12 @@ const SingleMovie = () => {
                     <img src={movie?.Poster} alt="" />
                 </figure>
                 <div className="card-content">
-                    <p className="title">{movie?.Title}</p>
-                    <p className="card-text">{movie?.Runtime}</p>
-                    <p className="card-text">{movie?.Released}</p>
-                    <p className="card-text">{movie?.Genre}</p>
-                    <p className="card-text">{movie?.imdbRating} / 10</p>
-                    <p className="card-text">{movie?.Country}</p>
+                    <p className="title">{movie.Title}</p>
+                    <p className="card-text">{movie.Runtime}</p>
+                    <p className="card-text">{movie.Released}</p>
+                    <p className="card-text">{movie.Genre}</p>
+                    <p className="card-text">{movie.imdbRating} / 10</p>
+                    <p className="card-text">{movie.Country}</p>
                     <NavLink to="/" className="back-btn">
                         Go Back
                     </NavLink>
